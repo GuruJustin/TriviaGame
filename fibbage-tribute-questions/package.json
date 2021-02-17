@@ -1,0 +1,28 @@
+{
+  "name": "fibbage-tribute-questions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.0.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minious/fibbage-tribute-questions.git"
+  },
+  "author": "Eliot GODARD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minious/fibbage-tribute-questions/issues"
+  },
+  "homepage": "https://github.com/Minious/fibbage-tribute-questions#readme"
+}

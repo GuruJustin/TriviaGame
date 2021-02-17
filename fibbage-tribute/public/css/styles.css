@@ -1,0 +1,437 @@
+/*
+
+ Dark Green : #78BD4C
+  Mid Green : #A8FF56
+       Lite : #ECFFE0
+Dark Purple : #A22FB0
+
+*/
+
+:root {
+    --answer-button-margin: 10px;
+}
+
+html, body {
+    height: 100%;
+    width : 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content : center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* ******************************
+              BUTTONS!
+     (Inspired by Bootstrap 3.0)
+   ****************************** */
+
+.btnHome {
+    width: 49%;
+}
+
+.btn {
+    display: inline-block;
+    height: 100%;
+    margin-bottom: 0;
+    color: #ECFFE0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 1.2;
+    text-align: center;
+    background-color: #8AD453;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.btn:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #AE37B2;
+    text-decoration: none;
+}
+
+.btn:active,
+.btn.active {
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* ******************************
+          TITLE SCREEN
+     (intro-screen-template)
+   ****************************** */
+
+#gameArea {
+    height: 100%;
+    max-width : 500px;
+    background-color: #78BD4C;
+    background-image : url('../images/bg.jpg');
+    background-size : 100% 100%;
+    width : 100%;
+    position: absolute;
+    display: flex;
+    align-items : center;
+    justify-content : center;
+    flex-direction: column;
+    margin : 0 auto;
+
+}
+
+.titleWrapper {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    height: 50%;
+    width: 96%;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin: 0px auto;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #ECFFE0;
+
+    width: 100%;
+    flex-grow: 1;
+}
+
+.buttons {
+    width: 100%;
+    text-align: center;
+}
+
+/* ******************************
+          START SCREEN
+     (create-game-template)
+   ****************************** */
+
+.createGameWrapper, .joinGameWrapper, .gameOver {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.createGameWrapper .info{
+    color: #ECFFE0;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.createGameWrapper{
+    color: #AE37B2;
+    font-weight: 300;
+}
+
+.info label {
+    display: block;
+}
+
+.info input {
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    height: 60px;
+    font-family: 'Quicksand', sans-serif;
+    color: blanchedalmond;
+    font-weight: 650;
+    font-size: 54px;
+    border: 1px dotted white;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.info input#inputPlayerName {
+    width: 90%;
+}
+
+#flags {
+    display: flex;
+    justify-content: center;
+}
+
+.flag {
+    height: 50px;
+    padding: 10px;
+}
+
+.selectedFlag {
+    -webkit-filter: drop-shadow(0px 0px 5px #222);
+    filter:         drop-shadow(0px 0px 5px #222);
+}
+
+/* ******************************
+           JOIN SCREEN
+      (join-game-template)
+   ****************************** */
+
+.joinGameWrapper {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 320px;
+}
+
+.joinGameWrapper .info {
+    font-size: 1.5em;
+    color: #ECFFE0;
+    padding-top: 1%;
+}
+
+.joinGameWrapper .btn {
+    width: 100%;
+    height: 50%;
+}
+
+#playerWaitingMessage {
+    font-size: .8em;
+}
+
+.createGameWrapper #gameURL {
+    margin-top : 20px;
+    font-size: 2em;
+    background-color : white;
+    font-weight : 400;
+    color : gray;
+}
+
+.createGameWrapper .gameId {
+    margin-top : 30px;
+    font-size: 6em;
+    font-weight : bold;
+    margin-bottom : 20px;
+}
+
+
+
+/* ******************************
+          PLAYER GAME SCREEN
+
+   ****************************** */
+
+
+#ulAnswers {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: var(--answer-button-margin);
+}
+
+#ulAnswers li {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnAnswer {
+    font-weight: 400;
+    font-size: 3em;
+    color: #AE37B2;
+    flex-grow: 1;
+    padding: 0;
+    border: 0;
+}
+
+.btnAnswer:disabled {
+    background-color: #598e39;
+}
+
+li:not(:last-child) .btnAnswer {
+    margin-bottom: var(--answer-button-margin);
+}
+
+/* ******************************
+            HOST SCREEN
+       (host-game-template)
+   ****************************** */
+
+/* Absolute Centering: http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/ */
+#wordArea {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+#hostWord {
+    flex-grow: 1;
+    width: 100%;
+    text-align: center;
+}
+
+#hostWord span{
+    font-size : 40px !important;
+    font-weight : 550;
+}
+
+#hostWordPlayer {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size : 39px;
+    font-weight : 510;
+}
+
+#hostWord h2, #btnPlayerRestart h3 {
+    font-size: 161px;
+    line-height: 1em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+#playerInfos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.playerInfo {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    display: flex;
+}
+
+.playerInfo:nth-child(odd) {
+    text-align: left;
+    flex-direction: row;
+}
+
+.playerInfo:nth-child(even) {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+.playerInfo div {
+    font-size: 1.4EM;
+    padding: 10px;
+    margin: 0;
+}
+
+.playerInfo .playerScore {
+    text-align: center;
+    background-color: #A8FF56;
+    max-width: 40px;
+    width: 10%;
+}
+
+.playerInfo .playerName {
+    background-color: #ECFFE0;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+#playersAnswersArea {
+    padding: 10px;
+    display: grid;
+    grid-gap: 10px;
+    font-family: 'Quicksand', sans-serif;
+    padding: 10px;
+    text-align: center;
+    font-weight: 400;
+}
+
+#playersAnswersArea .playerAnswer {
+    background-color: #8AD453;
+}
+
+#playersAnswersArea .playerAnswer .answer {
+    color: #AE37B2;
+    font-size: 2em;
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4px;
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea .playerVote {
+    font-size: 1.5em;
+    padding-bottom: 4px;
+    display: flex;
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea .playerVote div {
+    padding: 4px;
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea .playerVote .playerName {
+    color: #000;
+    background-color: #93e853;
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea .playerVote .malus {
+    color: #550000;
+    background-color: rgb(228, 15, 15);
+}
+
+#playersAnswersArea .playerAnswer .playersVotesArea .playerVote .bonus {
+    color: #000055;
+    background-color: rgb(29, 106, 248);
+}
+
+/* ******************************
+          TITLE SCREEN
+     (intro-screen-template)
+   ****************************** */
+
+.gameOver {
+    display: block;
+    height: 20%;
+    padding-top: 10%;
+    font-size: 2em;
+}
+
+.btnGameOver {
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+}
+
+

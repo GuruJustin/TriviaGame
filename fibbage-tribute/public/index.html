@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <!-- Ensure that everything scales appropriately on a mobile device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Let's borrow a cool looking Font from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div id="gameArea">
+        <!-- This is where the templates defined below will be used -->
+    </div>
+
+    <!-- Main Title Screen that appears when the page loads for the first time -->
+    <script id="intro-screen-template" type="text/template">
+
+        <div class="titleWrapper">
+
+            <div class="title">
+                TRIVIA
+            </div>
+
+            <div class="buttons">
+                <button id="btnCreateGame" class="btn left btnHome">CREATE</button>
+                <button id="btnJoinGame" class="btn right btnHome">JOIN</button>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+
+    </script>
+
+    <!-- This screen appears when a user clicks "CREATE" on the Title Screen -->
+    <script id="create-game-template" type="text/template">
+        <div class="createGameWrapper">
+            <div class="info">Open this site on your mobile device:</div>
+            <div id="gameURL" class="infoBig">Error!</div>
+
+            <div class="info" style="margin-top : 1rem">Please <strong>JOIN</strong> and <br/> enter the following ID:</div>
+            <div id="spanNewGameCode" class="gameId">Error!</div>
+
+            <div id=flags></div>
+
+            <div id="playersWaiting" style = "color : white;"></div>
+        </div>
+    </script>
+
+    <!-- This scrreen appears when a player clicks "JOIN" on the Title Screen -->
+    <script id="join-game-template" type="text/template">
+        <div class="joinGameWrapper" style = "color : white">
+            <div class="info">
+                <label for="inputPlayerName">Your Name:</label>
+                <input id="inputPlayerName" type="text" />
+            </div>
+
+            <div class="info">
+                <label for="inputGameId">Game ID:</label>
+                <input id="inputGameId" type="text"/>
+            </div>
+
+            <div class="info buttons">
+                <button id="btnStart" class="btn">Start</button>
+                <button id="btnPlayerLaunchGame" class="btn" style="display: none;">Launch Game</button>
+                <div id="playerWaitingMessage"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- This scrreen appears for players to enter ploys -->
+    <script id="ploy-template" type="text/template">
+        <div class="joinGameWrapper">
+            <div id="wordArea">
+                <div id="hostWordPlayer"></div>
+            </div>
+            
+            <div class="info">
+                <label for="inputPloy">Your ploy:</label>
+                <input id="inputPloy" type="text" />
+            </div>
+
+            <div class="info buttons">
+                <button id="btnSendPloy" class="btn">Validate</button>
+                <div id="playerWaitingMessage"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- This is the 'Host' screen. It displays the word for each player to match -->
+    <script id="host-game-template" type="text/template">
+        <div id="playerInfos"></div>
+        <div id="wordArea">
+            <div id="hostWord">5</div>
+        </div>
+        <div id="playersAnswersArea"></div>
+    </script>
+
+    <script id="player-answer-template" type="text/template">
+        <div class="playerAnswer">
+            <div class="answer"></div>
+            <div class="playersVotesArea"></div>
+        </div>
+    </script>
+
+    <script id="player-vote-template" type="text/template">
+        <div class="playerVote">
+            <div class="malus"></div>
+            <div class="playerName"></div>
+            <div class="bonus"></div>
+        </div>
+    </script>
+
+    <script id="player-info-template" type="text/template">
+        <div class="playerInfo">
+            <div class="playerScore">0</div><div class="playerName">Player</div>
+        </div>
+    </script>
+
+    <!-- Wait screen -->
+    <script id="wait-screen-template" type="text/template">
+        <div class="titleWrapper">
+            <div class="title">
+                Please wait
+            </div>
+        </div>
+    </script>
+
+    <script id="restart-screen-template" type="text/template">
+        <div class="titleWrapper">
+            <button id="btnPlayerLaunchGame" class="btn">Launch Game</button>
+        </div>
+    </script>
+
+    <!-- JavaScript Libraries -->
+
+    <!-- jQuery! -->
+    <script src="libs/jquery-2.0.2.min.js"></script>
+
+    <!-- TextFit resizes text to fill a container.
+        It's used so the titles and game words fit properly on any size screen.
+        https://github.com/STRML/textFit   -->
+    <script src="libs/textFit.min.js"></script>
+
+    <!-- FastClick is used to eliminate the 300ms delay when clicking items on a mobile device
+        https://github.com/ftlabs/fastclick -->
+    <script src="libs/fastclick.js"></script>
+
+    <!-- If Socket.IO is used with Express, then the /socket.io/ path will
+        serve the proper Socket.IO javascript files used by the browser -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- app.js is where all the client-side Anagrammatix game logic -->
+    <script src="app.js"></script>
+
+</body>
+</html>

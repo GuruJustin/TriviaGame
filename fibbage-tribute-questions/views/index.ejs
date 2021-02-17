@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Fibbage Tribute Questions</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="scripts/jquery-3.3.1.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <%if(status == 'success') { %>
+                <div class="row text-center">
+                    Question successfully sent !
+                    <a href="#" class='close'>✘</a>
+                </div>
+            <% } %>
+            <form action="/question/add" method="post">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="language">Language</label>
+                    </div>
+                    <div class="col-75">
+                        <select name="language" id="language">
+                            <% Object.keys(languages).forEach(code => {%>
+                                <option value="<%=code%>">
+                                    <%=languages[code].name%>
+                                </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="question">Question</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="question" id="question">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="solution">Solution</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="solution" id="solution">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-100">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+
+    <script>
+        $(document).ready(function() {
+            $('.close').click(function() {
+                $(this).parent()[0].setAttribute("style", "display:none");
+            });
+        });
+    </script>
+</html>
